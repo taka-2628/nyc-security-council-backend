@@ -8,4 +8,9 @@ class Camera < ApplicationRecord
 
   has_many :types, through: :camera_types
 
+  validates :user_id, presence: true
+  validates :neighborhood_id, presence: true
+  validates :image_url, presence: true
+  validates :description, length: { maximum: 150 }
+
 end
