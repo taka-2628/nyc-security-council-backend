@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def show
     user = User.find_by(id: session[:user_id])
     if user
-      render json: user, status: :ok
+      render json: user, status: :ok, include: ['social_media_platforms']
     else
       render json: { error: "Not authorize" }, status: :unauthorized
     end
@@ -11,6 +11,10 @@ class UsersController < ApplicationController
 
   def create
     user = User.create(user_params)
+    social_media_platforms = params[:social_media_platforms]
+    social_media_platforms.each do |platform|
+      user.user_social_media_platforms.create(social_media_platform_id: platform[:id])
+    end
     if user.valid?
       session[:user_id] = user[:id]
       render json: user, status: :created
