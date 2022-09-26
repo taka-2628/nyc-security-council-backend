@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :neighborhood_id, :username, :email, :fullname, :address_1, :address_2, :city, :state, :zipcode, :data_of_birth, :gender, :occupation, :citizenship
+  attributes :id, :username, :email, :fullname, :address_1, :address_2, :city, :state, :zipcode, :data_of_birth, :gender, :occupation, :citizenship
 
   belongs_to :neighborhood
   has_many :cameras
