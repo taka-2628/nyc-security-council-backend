@@ -74,7 +74,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_26_003546) do
     t.string "gender"
     t.string "occupation"
     t.string "citizenship"
-    t.string "sns"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

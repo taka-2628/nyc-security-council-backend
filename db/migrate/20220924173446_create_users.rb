@@ -15,7 +15,6 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :gender
       t.string :occupation
       t.string :citizenship
-      t.string :sns
       t.datetime :created_at
       t.datetime :updated_at
     end
