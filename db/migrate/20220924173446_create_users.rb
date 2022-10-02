@@ -6,12 +6,13 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :password_digest
       t.string :email
       t.string :fullname
+      t.string :phone
       t.string :address_1
       t.string :address_2
       t.string :city
       t.string :state
       t.string :zipcode
-      t.date :data_of_birth
+      t.date :date_of_birth
       t.string :gender
       t.string :occupation
       t.string :citizenship
