@@ -4,21 +4,16 @@ class CamerasController < ApplicationController
 
   def index
     cameras = Camera.all
-    render json: cameras, include: ['user', 'neighborhood', 'comments', 'comments.user', 'types']
+    render json: cameras, include: ['user', 'neighborhood', 'comments', 'comments.user']
   end
 
   def show
     camera = find_camera
-    render json: camera, include: ['user', 'neighborhood', 'comments', 'comments.user', 'types']
+    render json: camera, include: ['user', 'neighborhood', 'comments', 'comments.user']
   end
 
   def create
     camera = Camera.create!(camera_params)
-    types = params[:types]
-    
-    types.each do |type|
-      camera.camera_types.create(type_id: type[:id])
-    end
     render json: camera, status: :created
   end
 

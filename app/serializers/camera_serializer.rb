@@ -4,5 +4,4 @@ class CameraSerializer < ActiveModel::Serializer
   belongs_to :neighborhood
   belongs_to :user
   has_many :comments
-  has_many :types
 end
