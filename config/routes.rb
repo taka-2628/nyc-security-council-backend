@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :cameras
   resources :comments, except: [:index, :show]
   resources :neighborhoods, only: [:index]
-  resources :types, only: [:index]
   resources :social_media_platforms, only: [:index]
 
   post '/signup', to: 'users#create'
