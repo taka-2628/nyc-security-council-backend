@@ -12,8 +12,10 @@ class UsersController < ApplicationController
   def create
     user = User.create(user_params)
     social_media_platforms = params[:social_media_platforms]
-    social_media_platforms.each do |platform|
-      user.user_social_media_platforms.create(social_media_platform_id: platform[:id])
+    if social_media_platforms
+      social_media_platforms.each do |platform|
+        user.user_social_media_platforms.create(social_media_platform_id: platform[:id])
+      end
     end
     if user.valid?
       session[:user_id] = user[:id]
